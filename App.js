@@ -1,20 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { Provider } from 'react-redux';
+import { combineReducers, createStore } from 'redux';
+import Shopnavigator from './navigation/shopnavigator';
+import productReducer from './store/reducers/productsReducer';
+
+
+
+
+
+const rootReducer=combineReducers({
+  products:productReducer
+})
+
+const store=createStore(rootReducer)
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+    <Shopnavigator />
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
