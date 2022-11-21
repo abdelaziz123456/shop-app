@@ -1,22 +1,30 @@
-import { Platform } from 'react-native'
-import { createAppContainer } from 'react-navigation'
-import { createStackNavigator } from 'react-navigation-stack'
+import { Platform } from "react-native";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 
-import colors from '../constants/colors'
-import ProductsOverviewScreen from '../screens/shop/ProductsOverview'
+import colors from "../constants/colors";
+import ProductDetailsScreen from "../screens/shop/ProductDetails";
+import ProductsOverviewScreen from "../screens/shop/ProductsOverview";
 
+const ShopNavigator = createStackNavigator(
+  {
+    ProductsOverview: ProductsOverviewScreen,
+    ProuctDetails: ProductDetailsScreen,
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: Platform.OS == "android" ? colors.primary : "",
+      },
+      headerTitleStyle: {
+        fontFamily: "open-sans-bold",
+      },
+      headerBackTitleStyle: {
+        fontFamily: "open-sans",
+      },
+      headerTintColor: Platform.OS == "android" ? "white" : colors.primary,
+    },
+  }
+);
 
-const ShopNavigator=createStackNavigator({
-    ProductsOverview:ProductsOverviewScreen,
-
-},{
-    defaultNavigationOptions:{
-        headerStyle:{
-            backgroundColor:Platform.OS=='android' ? colors.primary :''
-        },
-        headerTintColor:Platform.OS=='android' ?  'white' : colors.primary
-    }
-})
-
-
-export default createAppContainer(ShopNavigator)
+export default createAppContainer(ShopNavigator);
