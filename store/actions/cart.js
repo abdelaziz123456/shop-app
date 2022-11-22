@@ -1,9 +1,9 @@
 export const ADD_TO_CART='ADD_TO_CART'
 
 
-export const adToCart=(product)=>{
+export const addToCart=(product)=>{
    return  {
-        productId:id,
+        type:ADD_TO_CART,
        product:product
     }
 }

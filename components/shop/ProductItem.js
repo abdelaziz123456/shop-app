@@ -54,9 +54,10 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 5,
     borderRadius: 10,
-    margin: 20,
+   
 
     backgroundColor: "white",
+    margin: 20,
     height: 300,
   },
   image: {

@@ -11,8 +11,10 @@ import productReducer from './store/reducers/productsReducer';
 import * as Font from 'expo-font'
 import { useState } from 'react';
 import AppLoading from 'expo-app-loading';
+import cartReducer from './store/reducers/cartReducer';
 const rootReducer=combineReducers({
-  products:productReducer
+  products:productReducer,
+  cart:cartReducer,
 })
 
 const store=createStore(rootReducer)
